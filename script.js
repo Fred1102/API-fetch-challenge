@@ -21,7 +21,7 @@ async function makeBeersCards() {
         if (beerArr[i - 1].image_url == null) {
             imageIUrl = "https://images.punkapi.com/v2/keg.png";
         }
-        column.innerHTML = `<div class="card" style="width: 18rem;">
+        column.innerHTML = `<div class="card";>
                                 <img src="${imageIUrl}" class="card-img-top" alt="#">
                                 <div class="card-body text-center">
                                     <h5 class="card-title">${beerArr[i-1].name}</h5>
@@ -38,6 +38,8 @@ async function makeBeersCards() {
     }
 
 }
+
+
 const paginationLinks = document.getElementsByClassName('page-link');
 
 for (let i = 0; i < paginationLinks.length; ++i) {
