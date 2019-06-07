@@ -41,25 +41,28 @@ async function makeBeersCards() {
 const paginationLinks = document.getElementsByClassName('page-link');
 
 for (let i = 0; i < paginationLinks.length; ++i) {
-    if(i==0){
+    if (i == 0) {
         paginationLinks[i].onclick = () => {
-            
-           --nextPage;
-           makeBeersCards();
-        }
-    }
-    if(i== paginationLinks.length-1){
-        paginationLinks[i].onclick = () => {
-            ++nextPage;
+            --nextPage;
+            nextPage = (nextPage == 0)? 7: nextPage;
+            console.log(nextPage);
             makeBeersCards();
         }
-    }
-    paginationLinks[i].onclick = e => {
-        const number = e.target.textContent;
-        nextPage = parseInt(number);
-        container.innerHTML = "";
-        makeBeersCards();
-        console.log(nextPage);
+    } else if (i == paginationLinks.length - 1) {
+        paginationLinks[i].onclick = () => {
+            ++nextPage;
+            nextPage = (nextPage == 8) ? 1 : nextPage;
+            console.log(nextPage);
+            makeBeersCards();
+        }
+    } else {
+        paginationLinks[i].onclick = e => {
+            const number = e.target.textContent;
+            nextPage = parseInt(number);
+            container.innerHTML = "";
+            makeBeersCards();
+            console.log(nextPage);
+        }
     }
 }
 
