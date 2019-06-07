@@ -4,7 +4,7 @@ const container = document.getElementById('container');
 console.log(container);
 
 function getBeers(page) {
-    return fetch(`https://api.punkapi.com/v2/beers?page=${page}&per_page=40`)
+    return fetch(`https://api.punkapi.com/v2/beers?page=${page}&per_page=50`)
         .then(resp => resp.json());
 }
 
@@ -19,9 +19,9 @@ async function makeBeersCards() {
         column.classList.add('col');
         column.innerHTML = `<div class="card" style="width: 18rem;">
     <img src="${beerArr[i-1].image_url}" class="card-img-top" alt="#">
-    <div class="card-body">
+    <div class="card-body text-center">
       <h5 class="card-title">${beerArr[i-1].name}</h5>
-      <p class="card-text">${beerArr[i-1].description}</p>
+      <p class="card-text text-justify">${beerArr[i-1].description}</p>
     </div>
     </div>`;
         row.appendChild(column);

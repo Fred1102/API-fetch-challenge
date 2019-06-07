@@ -1,5 +1,16 @@
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
 .card-img-top {
     height: 22rem;
-    object-fit: cover;
-    object-position: 0 0;
+    object-fit: contain;
+
+}
+img {
+    max-width:100%;
+    height:auto;
+}
+nav {
+display:table;
 }
