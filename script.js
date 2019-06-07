@@ -17,11 +17,12 @@ async function makeBeersCards() {
     for (let i = 1; i <= beerArr.length; ++i) {
         const column = document.createElement('div');
         column.classList.add('col');
+        column.style.transform = "scale(1)";
         let imageIUrl = beerArr[i - 1].image_url;
         if (beerArr[i - 1].image_url == null) {
             imageIUrl = "https://images.punkapi.com/v2/keg.png";
         }
-        column.innerHTML = `<div class="card";>
+        column.innerHTML = `<div class="card">
                                 <img src="${imageIUrl}" class="card-img-top" alt="#">
                                 <div class="card-body text-center">
                                     <h5 class="card-title">${beerArr[i-1].name}</h5>
@@ -36,17 +37,27 @@ async function makeBeersCards() {
         }
 
     }
-
+    const cards = document.getElementsByClassName('card');
+    console.log(cards);
+    for(let i = 0; i< cards.length; ++i){
+        cards[i].onmouseenter = e =>{
+            e.target.style.transform = "scale(1.5)";
+            e.target.style.transition = "all .2s ease-in-out";
+            e.target.style.zIndex = "2";
+        }
+        cards[i].onmouseleave = e =>{
+            e.target.style.transform = "scale(1)";
+            e.target.style.transition = "all .2s ease-in-out";
+        }
+    }
 }
-
-
 const paginationLinks = document.getElementsByClassName('page-link');
 
 for (let i = 0; i < paginationLinks.length; ++i) {
     if (i == 0) {
         paginationLinks[i].onclick = () => {
             --nextPage;
-            nextPage = (nextPage == 0)? 7: nextPage;
+            nextPage = (nextPage == 0) ? 7 : nextPage;
             console.log(nextPage);
             makeBeersCards();
         }
@@ -68,4 +79,9 @@ for (let i = 0; i < paginationLinks.length; ++i) {
     }
 }
 
-console.log(paginationLinks);
+
+// function expand(card){
+// card.onmouseenter = e =>{
+//     e.target.style.transform = "scale(1.5)";
+// }
+// }
