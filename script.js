@@ -1,10 +1,10 @@
 const url = "https://api.punkapi.com/v2/beers?page=";
 let nextPage = 1;
 const container = document.getElementById('container');
-console.log(container);
+makeBeersCards();
 
 function getBeers(page) {
-    return fetch(`https://api.punkapi.com/v2/beers?page=${page}&per_page=50`)
+    return fetch(`https://api.punkapi.com/v2/beers?page=${page}&per_page=40`)
         .then(resp => resp.json());
 }
 
@@ -34,4 +34,15 @@ async function makeBeersCards() {
     }
 
 }
-makeBeersCards();
+const paginationLinks = document.getElementsByClassName('page-link');
+
+for (let i = 1; i < paginationLinks.length - 1; ++i) {
+    paginationLinks[i].onclick = e => {
+        const number = e.target.textContent;
+        nextPage = parseInt(number);
+        container.innerHTML="";
+        makeBeersCards();
+        console.log(number);
+    }
+}
+console.log(paginationLinks);
