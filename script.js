@@ -12,7 +12,7 @@ function getBeers(page) {
 async function makeBeersCards() {
     const beerArr = await getBeers(nextPage);
     let row = document.createElement('div');
-    row.classList.add('row', 'equal');
+    row.classList.add('row');
 
     for (let i = 1; i <= beerArr.length; ++i) {
         const column = document.createElement('div');
@@ -22,18 +22,22 @@ async function makeBeersCards() {
         if (beerArr[i - 1].image_url == null) {
             imageIUrl = "https://images.punkapi.com/v2/keg.png";
         }
-        column.innerHTML = `<div class="card">
+        column.innerHTML = `
+                                <div class="card-frame">
+                            <div class="card">
                                 <img src="${imageIUrl}" class="card-img-top" alt="#">
                                 <div class="card-body text-center">
                                     <h5 class="card-title">${beerArr[i-1].name}</h5>
                                     <p class="card-text text-justify">${beerArr[i-1].description}</p>
                                 </div>
-                            </div>`;
+                            </div>
+                            </div>
+                            `;
         row.appendChild(column);
         if (i % 5 == 0) {
             container.appendChild(row);
             row = document.createElement('div');
-            row.classList.add('row', 'equal');
+            row.classList.add('row');
         }
 
     }
@@ -48,6 +52,7 @@ async function makeBeersCards() {
     //         e.target.style.transition = "all .2s ease-in-out";
     //     }
     // }
+
 }
 const paginationLinks = document.getElementsByClassName('page-link');
 

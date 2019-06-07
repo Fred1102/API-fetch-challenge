@@ -39,8 +39,6 @@
     justify-content: flex-end; 
     color:white; 
     font-family: 'Roboto', sans-serif;
-
-
 }
 
 li{
@@ -115,11 +113,17 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.card{
+img {
+    max-width:100%;
+    height:auto;
+    height: 100vw; 
+    width: 100vh;
+}
+.card {
     position: relative; 
     height: 500px; 
-    transition: all .1s ease-in-out; 
-    z-index:2;
+    display:inline-block;
+   
     transition: all .2s ease-in-out;
     transform: scale(1);
 }
@@ -129,32 +133,29 @@ body {
     background-color: red;
     transform: scale(1.5);
     transition: all .2s ease-in-out;
+    -webkit-transform: scale(1.5);
+    -webkit-transition: all .2s ease-in-out;
 }
 
+
+.card-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 80%;
+}
+
+.card-body text-center {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20%;
+}
 
 .card-img-top {
     height: 10rem;
     object-fit: contain;
 }
 
-.card-title {
-    font-family: 'Roboto', sans-serif;
-    font-size: 100%;
-}
 
-.card-body text-center {
-    font-family: 'Roboto', sans-serif;
-    font-size: 40%;
-}
 
-.card-frame{
-background-color: green; 
-}
 
-img {
-    max-width:100%;
-    height:auto;
-    height: 100vw; 
-    width: 100vh;
-}
+
+
 
