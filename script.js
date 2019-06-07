@@ -43,7 +43,7 @@ const paginationLinks = document.getElementsByClassName('page-link');
 for (let i = 0; i < paginationLinks.length; ++i) {
     if(i==0){
         paginationLinks[i].onclick = () => {
-            if()
+            
            --nextPage;
            makeBeersCards();
         }
