@@ -17,18 +17,18 @@ async function makeBeersCards() {
     for (let i = 1; i <= beerArr.length; ++i) {
         const column = document.createElement('div');
         column.classList.add('col');
-        column.style.transform = "scale(1)";
+       
         let imageIUrl = beerArr[i - 1].image_url;
         if (beerArr[i - 1].image_url == null) {
             imageIUrl = "https://images.punkapi.com/v2/keg.png";
         }
         column.innerHTML = `
-                                <div class="card-frame">
                             <div class="card">
+                            <div class="card-hover">
                                 <img src="${imageIUrl}" class="card-img-top" alt="#">
-                                <div class="card-body text-center">
+                                <div class="card-body">
                                     <h5 class="card-title">${beerArr[i-1].name}</h5>
-                                    <p class="card-text text-justify">${beerArr[i-1].description}</p>
+                                    <p class="card-text">${beerArr[i-1].description}</p>
                                 </div>
                             </div>
                             </div>
