@@ -39,17 +39,15 @@ async function makeBeersCards() {
     }
     const cards = document.getElementsByClassName('card');
     console.log(cards);
-    for(let i = 0; i< cards.length; ++i){
-        cards[i].onmouseenter = e =>{
-            e.target.style.transform = "scale(1.5)";
-            e.target.style.transition = "all .2s ease-in-out";
-            e.target.style.zIndex = "2";
-        }
-        cards[i].onmouseleave = e =>{
-            e.target.style.transform = "scale(1)";
-            e.target.style.transition = "all .2s ease-in-out";
-        }
-    }
+    // for(let i = 0; i< cards.length; ++i){
+    //     cards[i].onmouseenter = e =>{
+            
+    //     }
+    //     cards[i].onmouseleave = e =>{
+    //         e.target.style.transform = "scale(1)";
+    //         e.target.style.transition = "all .2s ease-in-out";
+    //     }
+    // }
 }
 const paginationLinks = document.getElementsByClassName('page-link');
 
